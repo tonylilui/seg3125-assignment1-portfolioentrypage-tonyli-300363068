@@ -1,0 +1,96 @@
+/* Custom Styles for Tony Li's Portfolio */
+
+:root {
+  --primary-color: #2563eb;
+  --secondary-color: #64748b;
+  --dark-color: #1e293b;
+  --light-color: #f8fafc;
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--dark-color);
+  line-height: 1.6;
+  background-color: white;
+}
+
+h1, h2, h3, .navbar-brand {
+  font-family: var(--font-heading);
+  color: var(--dark-color);
+}
+
+.navbar {
+  transition: all 0.3s ease;
+}
+
+.nav-link {
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  padding: 0.5rem 1rem !important;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  border-radius: 8px;
+  font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+}
+
+.card {
+  transition: transform 0.3s ease;
+  border-radius: 12px;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+
+#about {
+  border-bottom: 1px solid #e2e8f0;
+}
+
+/* Visual Hierarchy & Scale */
+.display-3 {
+  font-size: calc(2rem + 3vw);
+  line-height: 1.1;
+}
+
+.lead {
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+
+/* Contrast */
+.bg-light {
+  background-color: var(--light-color) !important;
+}
+
+/* Balance */
+.container {
+  max-width: 1100px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+header h1, header p, header .btn {
+  animation: fadeIn 0.8s ease forwards;
+}
