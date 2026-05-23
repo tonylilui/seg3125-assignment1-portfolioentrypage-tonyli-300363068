@@ -36,7 +36,7 @@ function App() {
                 <a href="#portfolio" className="btn btn-primary btn-lg px-4 me-md-2">View My Work</a>
               </div>
               <div className="col-lg-6 text-center">
-                <div className="bg-secondary rounded-circle d-inline-block shadow-lg" style={{width: '300px', height: '300px', background: 'url(https://via.placeholder.com/300) center/cover'}}></div>
+                <div className="bg-secondary rounded-circle d-inline-block shadow-lg" style={{width: '300px', height: '300px', background: 'url(/tonystackprofilepic.jpg) center/cover'}}></div>
               </div>
             </div>
           </div>
