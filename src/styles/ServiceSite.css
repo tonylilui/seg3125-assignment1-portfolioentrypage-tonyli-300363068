@@ -1,0 +1,396 @@
+/* ServiceSite Styles - PawCare Veterinary Clinic */
+
+:root {
+  --primary-color: #2563eb;
+  --secondary-color: #64748b;
+  --light-bg: #f1f5f9;
+  --accent-color: #ec4899;
+  --success-color: #10b981;
+  --border-radius: 12px;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* General Styles */
+.service-site {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Navbar Styling */
+.service-site .navbar {
+  background-color: #ffffff;
+  box-shadow: var(--shadow);
+  border-bottom: 2px solid var(--light-bg);
+}
+
+.service-site .navbar-brand {
+  font-size: 1.5rem;
+  color: var(--primary-color) !important;
+  font-weight: 700;
+  transition: transform 0.3s ease;
+}
+
+.service-site .navbar-brand:hover {
+  transform: scale(1.05);
+}
+
+.service-site .nav-link {
+  color: var(--secondary-color) !important;
+  font-weight: 500;
+  margin-left: 1.5rem;
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+
+.service-site .nav-link:hover {
+  color: var(--primary-color) !important;
+}
+
+/* Hero Section */
+.hero-section {
+  background: linear-gradient(135deg, var(--primary-color) 0%, #1e40af 100%);
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 400px;
+  height: 400px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+}
+
+.hero-section h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+}
+
+.hero-section .lead {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.hero-image {
+  font-size: 8rem;
+  text-align: center;
+  animation: bounce 3s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+/* Services Preview Section */
+.services-preview {
+  background-color: var(--light-bg);
+  padding: 4rem 0;
+}
+
+.service-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  background: white;
+  border: none;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-lg);
+}
+
+.service-card .card-title {
+  color: var(--primary-color);
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.service-card .card-text {
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Services Page */
+.services-page {
+  flex: 1;
+}
+
+.service-detail-card {
+  border-radius: var(--border-radius);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+}
+
+.service-detail-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+}
+
+.service-detail-card .card-title {
+  color: var(--primary-color);
+  font-size: 1.75rem;
+  border-bottom: 3px solid var(--primary-color);
+  padding-bottom: 1rem;
+}
+
+/* Booking Page */
+.booking-page {
+  flex: 1;
+  background-color: var(--light-bg);
+}
+
+.booking-form-card {
+  border-radius: var(--border-radius);
+  background: white;
+  box-shadow: var(--shadow-lg);
+}
+
+.booking-form-card .form-label {
+  color: var(--secondary-color);
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.booking-form-card .form-control,
+.booking-form-card .form-select {
+  border: 2px solid #e2e8f0;
+  border-radius: calc(var(--border-radius) / 2);
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.booking-form-card .form-control:focus,
+.booking-form-card .form-select:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.booking-form-card .btn-primary {
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: calc(var(--border-radius) / 2);
+  padding: 0.75rem 2rem;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  font-size: 1.05rem;
+}
+
+.booking-form-card .btn-primary:hover {
+  background-color: #1e40af;
+  transform: translateY(-2px);
+}
+
+/* Confirmation Page */
+.confirmation-page {
+  flex: 1;
+  background-color: var(--light-bg);
+}
+
+.confirmation-card {
+  border-radius: var(--border-radius);
+  background: white;
+  box-shadow: var(--shadow-lg);
+  border: 2px solid var(--success-color);
+}
+
+.success-icon {
+  font-size: 4rem;
+  animation: scaleIn 0.5s ease;
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.confirmation-details {
+  background-color: var(--light-bg);
+  border-radius: calc(var(--border-radius) / 2);
+  padding: 1.5rem;
+  text-align: left;
+}
+
+.confirmation-details p {
+  margin-bottom: 0.75rem;
+  color: var(--secondary-color);
+}
+
+.confirmation-details strong {
+  color: var(--primary-color);
+}
+
+/* Contact Section */
+.contact-section {
+  padding: 4rem 0;
+  background: white;
+}
+
+.contact-card {
+  background: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid var(--light-bg);
+}
+
+.contact-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+}
+
+.contact-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.contact-card h5 {
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+.contact-card p {
+  color: var(--secondary-color);
+  line-height: 1.8;
+}
+
+/* About Section */
+.about-section {
+  padding: 4rem 0;
+  background-color: var(--light-bg);
+}
+
+.about-section h2 {
+  color: var(--primary-color);
+  margin-bottom: 3rem;
+}
+
+.feature {
+  padding: 1.5rem;
+  background: white;
+  border-radius: calc(var(--border-radius) / 2);
+  border-left: 4px solid var(--primary-color);
+  transition: transform 0.3s ease;
+}
+
+.feature:hover {
+  transform: translateX(8px);
+}
+
+.feature h5 {
+  color: var(--primary-color);
+  margin-bottom: 0.75rem;
+}
+
+.feature p {
+  color: var(--secondary-color);
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Footer */
+.service-site footer {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  color: white;
+  text-align: center;
+  padding: 2rem 0;
+  margin-top: auto;
+}
+
+.service-site footer p {
+  margin: 0.5rem 0;
+}
+
+/* Button Styles */
+.btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #1e40af;
+  border-color: #1e40af;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+}
+
+.btn-light {
+  background-color: white;
+  color: var(--primary-color);
+  font-weight: 600;
+  border: 2px solid white;
+  transition: all 0.3s ease;
+}
+
+.btn-light:hover {
+  background-color: transparent;
+  color: white;
+  border-color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-section h1 {
+    font-size: 2rem;
+  }
+
+  .hero-section .lead {
+    font-size: 1rem;
+  }
+
+  .hero-image {
+    font-size: 5rem;
+    margin-top: 2rem;
+  }
+
+  .contact-card {
+    margin-bottom: 1.5rem;
+  }
+
+  .service-detail-card {
+    margin-bottom: 1.5rem;
+  }
+
+  .booking-form-card {
+    padding: 1.5rem !important;
+  }
+}
+
+/* Accessibility */
+.service-site a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.service-site a:hover {
+  color: #1e40af;
+  text-decoration: underline;
+}
+
+/* Focus states for keyboard navigation */
+.service-site a:focus,
+.service-site button:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}

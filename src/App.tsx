@@ -1,7 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
+import ServiceSite from './components/ServiceSite';
 
 function App() {
+  const [showServiceSite, setShowServiceSite] = useState(false);
+
+  if (showServiceSite) {
+    return <ServiceSite onBack={() => setShowServiceSite(false)} />;
+  }
+
   return (
     <div className="App">
       <header className="app-header">
@@ -87,8 +94,8 @@ function App() {
                   <img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" className="card-img-top" alt="Service Site" />
                   <div className="card-body">
                     <h5 className="card-title fw-bold">Service Site</h5>
-                    <p className="card-text text-muted small">Design for a local service provider (e.g. hairdresser or repair shop).</p>
-                    <a href="case-studies/service-site.html" className="btn btn-outline-primary btn-sm">Coming Soon</a>
+                    <p className="card-text text-muted small">PawCare Veterinary Clinic - A high-fidelity prototype with booking system and personas.</p>
+                    <button onClick={() => setShowServiceSite(true)} className="btn btn-primary btn-sm">View Site →</button>
                   </div>
                 </div>
               </div>
