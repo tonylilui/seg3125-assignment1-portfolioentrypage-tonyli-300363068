@@ -1,0 +1,496 @@
+/* ============================================
+   Memory Game Styles — ALL selectors scoped under .memory-game
+   Applied Gestalt Principles:
+   - Proximity: Related elements grouped together
+   - Similarity: Consistent styling for similar items
+   - Closure: Card flip reveals hidden information
+   - Continuity: Grid layout guides eye flow
+   - Figure-Ground: Clear foreground/background distinction
+   - Symmetry: Balanced, centered layout
+   ============================================ */
+
+/* --- Layout & Container --- */
+.memory-game {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 2rem 1rem;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* --- Header (Figure-Ground: clear visual separation) --- */
+.memory-game .game-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.memory-game .back-btn {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 0.5rem 1.25rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+  margin-bottom: 1rem;
+}
+
+.memory-game .back-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateX(-3px);
+}
+
+.memory-game .game-title {
+  color: white;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0.5rem 0 0.25rem;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.memory-game .title-icon {
+  display: inline-block;
+  animation: mg-pulse 2s ease-in-out infinite;
+}
+
+@keyframes mg-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+
+.memory-game .game-subtitle {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+/* --- Instructions Panel (Proximity: grouped content) --- */
+.memory-game .instructions-panel {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  max-width: 500px;
+  margin: 0 auto 2rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.memory-game .instructions-panel h3 {
+  color: #667eea;
+  margin-top: 0;
+  font-size: 1.5rem;
+}
+
+.memory-game .instructions-panel ul {
+  padding-left: 1.25rem;
+  color: #4a5568;
+}
+
+.memory-game .instructions-panel li {
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+
+.memory-game .start-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.memory-game .start-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+}
+
+.memory-game .close-instructions {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #a0aec0;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.memory-game .close-instructions:hover {
+  background: #f7fafc;
+  color: #2d3748;
+}
+
+/* --- Controls (Similarity: consistent button styling) --- */
+.memory-game .game-controls {
+  max-width: 700px;
+  margin: 0 auto 2rem;
+}
+
+.memory-game .difficulty-selector {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.memory-game .diff-btn {
+  padding: 0.6rem 1.5rem;
+  border-radius: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.memory-game .diff-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.memory-game .diff-btn.active {
+  background: white;
+  color: #667eea;
+  border-color: white;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Stats Bar (Proximity: grouped as one unit) */
+.memory-game .stats-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  flex-wrap: wrap;
+}
+
+.memory-game .stat {
+  text-align: center;
+}
+
+.memory-game .stat-label {
+  display: block;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.25rem;
+}
+
+.memory-game .stat-value {
+  display: block;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.memory-game .reset-btn {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 0.5rem 1.25rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.memory-game .reset-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* --- Cards (Closure: flip reveals hidden content) --- */
+.memory-game .card {
+  aspect-ratio: 1;
+  cursor: pointer;
+  width: 100%;
+  max-width: 140px;
+}
+
+.memory-game .game-board {
+  display: grid;
+  gap: 0.75rem;
+  max-width: 650px;
+  margin: 0 auto;
+  justify-content: center;
+  perspective: 1000px;
+}
+
+.memory-game .card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s ease;
+  transform-style: preserve-3d;
+}
+
+.memory-game .card.flipped .card-inner,
+.memory-game .card.matched .card-inner {
+  transform: rotateY(180deg);
+}
+
+.memory-game .card-front,
+.memory-game .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Card Back (Figure-Ground: distinct from front) */
+.memory-game .card-back {
+  background: linear-gradient(145deg, #ffffff 0%, #e2e8f0 100%);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.memory-game .card-back-pattern {
+  width: 60%;
+  height: 60%;
+  background: repeating-conic-gradient(#667eea 0% 25%, #764ba2 0% 50%) 50% / 16px 16px;
+  border-radius: 8px;
+  opacity: 0.3;
+}
+
+/* Card Front (Similarity: consistent icon presentation) */
+.memory-game .card-front {
+  background: white;
+  transform: rotateY(180deg);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.memory-game .card-icon {
+  font-size: 2.5rem;
+}
+
+/* Matched state (Similarity: visual feedback) */
+.memory-game .card.matched .card-front {
+  box-shadow: 0 0 0 3px #22c55e, 0 4px 15px rgba(34, 197, 94, 0.3);
+  animation: mg-matchPop 0.4s ease;
+}
+
+@keyframes mg-matchPop {
+  0% { transform: rotateY(180deg) scale(1); }
+  50% { transform: rotateY(180deg) scale(1.1); }
+  100% { transform: rotateY(180deg) scale(1); }
+}
+
+/* Hover effect (Figure-Ground: interactive hint) */
+.memory-game .card:not(.flipped):not(.matched):hover .card-inner {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* --- Win Modal (Figure-Ground: overlay separates from game) --- */
+.memory-game .win-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: mg-fadeIn 0.3s ease;
+}
+
+@keyframes mg-fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.memory-game .win-modal {
+  background: white;
+  border-radius: 20px;
+  padding: 2.5rem;
+  max-width: 420px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: mg-slideUp 0.4s ease;
+}
+
+@keyframes mg-slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.memory-game .win-icon {
+  font-size: 4rem;
+  margin-bottom: 0.5rem;
+}
+
+.memory-game .win-modal h2 {
+  color: #1a202c;
+  margin: 0.5rem 0 0.25rem;
+  font-size: 1.75rem;
+}
+
+.memory-game .win-modal > p {
+  color: #718096;
+  margin-bottom: 1.5rem;
+}
+
+/* Score Display (Proximity: grouped elements) */
+.memory-game .score-display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.memory-game .score-grade {
+  font-size: 3rem;
+  font-weight: 800;
+}
+
+.memory-game .score-label {
+  font-size: 1.25rem;
+  color: #4a5568;
+  font-weight: 600;
+}
+
+/* Win Stats (Symmetry: evenly spaced) */
+.memory-game .win-stats {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: #f7fafc;
+  border-radius: 12px;
+}
+
+.memory-game .win-stat {
+  text-align: center;
+}
+
+.memory-game .win-stat-value {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1a202c;
+}
+
+.memory-game .win-stat-label {
+  display: block;
+  font-size: 0.8rem;
+  color: #a0aec0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Win Actions (Similarity: consistent button styles) */
+.memory-game .win-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.memory-game .play-again-btn,
+.memory-game .change-difficulty-btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 1rem;
+}
+
+.memory-game .play-again-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+}
+
+.memory-game .play-again-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+}
+
+.memory-game .change-difficulty-btn {
+  background: white;
+  color: #667eea;
+  border: 2px solid #667eea;
+}
+
+.memory-game .change-difficulty-btn:hover {
+  background: #f7fafc;
+  transform: translateY(-2px);
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 600px) {
+  .memory-game {
+    padding: 1rem 0.5rem;
+  }
+
+  .memory-game .game-title {
+    font-size: 1.75rem;
+  }
+
+  .memory-game .game-board {
+    gap: 0.5rem;
+  }
+
+  .memory-game .stats-bar {
+    gap: 1rem;
+    padding: 0.75rem 1rem;
+  }
+
+  .memory-game .stat-value {
+    font-size: 1.25rem;
+  }
+
+  .memory-game .card-icon {
+    font-size: 1.75rem;
+  }
+
+  .memory-game .win-modal {
+    padding: 1.5rem;
+  }
+
+  .memory-game .score-grade {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .memory-game .game-board {
+    gap: 0.35rem;
+  }
+
+  .memory-game .card-icon {
+    font-size: 1.5rem;
+  }
+
+  .memory-game .diff-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+  }
+}

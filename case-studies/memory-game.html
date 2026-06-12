@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Memory Game - Coming Soon</title>
+    <title>Memory Game - Tony Li</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -14,28 +14,50 @@
         align-items: center;
         justify-content: center;
         min-height: 100vh;
-        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       }
-      .coming-soon {
+      .redirect-container {
         text-align: center;
         color: white;
       }
-      .coming-soon h1 {
-        font-size: 3rem;
+      .redirect-container h1 {
+        font-size: 2.5rem;
         margin-bottom: 1rem;
       }
-      .coming-soon p {
+      .redirect-container p {
         font-size: 1.25rem;
         opacity: 0.9;
+        margin-bottom: 2rem;
+      }
+      .play-btn {
+        display: inline-block;
+        background: white;
+        color: #667eea;
+        padding: 1rem 3rem;
+        border-radius: 12px;
+        font-size: 1.25rem;
+        font-weight: 700;
+        text-decoration: none;
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease;
+      }
+      .play-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        color: #764ba2;
       }
     </style>
   </head>
   <body>
-    <div class="coming-soon">
-      <h1>Coming Soon</h1>
-      <p>Memory Game Design (Un jeu de mémoire)</p>
+    <div class="redirect-container">
+      <h1>🧠 Memory Game</h1>
+      <p>Un jeu de mémoire — Test your memory!</p>
+      <a href="../index.html#/memory" class="play-btn">▶ Play Now</a>
       <p class="mt-4">
-        <a href="../index.html" style="color: white">← Back to Portfolio</a>
+        <a href="../index.html" style="color: white; opacity: 0.8"
+          >← Back to Portfolio</a
+        >
       </p>
     </div>
   </body>

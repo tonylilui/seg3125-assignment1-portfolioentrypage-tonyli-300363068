@@ -1,9 +1,17 @@
 import React, { useState } from 'react';
 import './App.css';
 import ServiceSite from './components/ServiceSite';
+import MemoryGame from './components/MemoryGame';
+
+type View = 'portfolio' | 'service' | 'memory';
 
 function App() {
+  const [currentView, setCurrentView] = useState<View>('portfolio');
   const [showServiceSite, setShowServiceSite] = useState(false);
+
+  if (currentView === 'memory') {
+    return <MemoryGame onBack={() => setCurrentView('portfolio')} />;
+  }
 
   if (showServiceSite) {
     return <ServiceSite onBack={() => setShowServiceSite(false)} />;
@@ -36,7 +44,7 @@ function App() {
                 <h1 className="display-3 fw-bold mb-4">Hi, I'm Tony Li</h1>
                 <p className="lead text-muted mb-4">
                   I am a student at the University of Ottawa currently exploring the intersection of technology and human-centered design. I'm passionate about building intuitive digital experiences that solve real-world problems.
-                </p>
+                </p>``
                 <p className="mb-4">
                   When I'm not designing or coding, you can find me exploring new coffee shops, reading about tech trends, or working on personal projects.
                 </p>
@@ -104,8 +112,8 @@ function App() {
                   <img src="https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" className="card-img-top" alt="Memory Game" />
                   <div className="card-body">
                     <h5 className="card-title fw-bold">Memory Game</h5>
-                    <p className="card-text text-muted small">Un jeu de mémoire interactif avec une interface intuitive.</p>
-                    <a href="case-studies/memory-game.html" className="btn btn-outline-primary btn-sm">Coming Soon</a>
+                    <p className="card-text text-muted small">Un jeu de mémoire — Test your memory with matching pairs!</p>
+                    <button onClick={() => setCurrentView('memory')} className="btn btn-primary btn-sm">Play Game →</button>
                   </div>
                 </div>
               </div>
